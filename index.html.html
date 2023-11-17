@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://lh3.googleusercontent.com/pw/ADCreHfxbYemc7xe1KpQuGUMu50MqQA9fMQtqojfg4C3Wczc3B1WHuk6gLbUX96p1XzWkw3KgDhW5Dy6784vtx7eoCrBqbRWGrQBo5ciV1HuaN5I5N6n5cxzALBSvUwHLAAnYRw1pl7Xdi09K_uiRZ3WoyYhu78XHZoqh4XF9jHJvpleHC8CX5mgxPSgpzh0enBr5unW3q8PE1ycfS5ZVh3Y4FkNLwg49OyWKqhBi_-Lf0gJoBDewDB9lJZolSjnfANVFXscF7-dR2LQWSy4imfKRKb4L_rNrE1x5Blm8B9RSy9QFDcbs1OGKzH65nF1LNZBYU8rsJ2H34vfQARwKlJWesC05_AP9mG5SUM5ejnaTz39X7UFlPzIP7oGJDkDHZJu80pAH-pkHCV--cx1THlPswz7_3j_aIPJksSoBPcpl59Y_2dElSSme33Wct2lAoWg0cLiWXQASiK0vbht_ZCQP-KCuDnt1_qmlWu4aitdDl5aEjS2fZmH1OsA8foIgCMuMLOA2prXzY9l5GhrsE1AHE7S0QMW6PZVlo5bBaZ9mVSwSOfXNHUMQ-4DnzqHtMDAriMICXpAMIxOAIMrQNjgwh0Om3c5u7FCExwo_zyahhdRdBWMSJhUyw9B1zgckhrMTUz0z3DwD8pSnrIzhWNWtXrQLOfi2BULS1UIdQR0NYgTSWmaZnSCZR0F9YImLOlg-bco2iv4Nj4DW3cat6M2QBgwkh4YHtS0Mvp7-dm3nSfUL9T8xEPGrX19wa0TWfzGkJ1dDBUkTw_Jw2QtLby2YAI795Naumd4ZJFaR-fvv3IWAlBXeFcN9e4qqT_TX5-Hd1bzdRkooCZgemrWLO5tvOllNh6zAmciR0IDBx7IjOXGVtKJhw3iI_iA3P_duBTjKbvS8FBgjvj-qmw-IVlhF5WJbEzkblW-Tx0PEW75pQIR2IYmkgAr9dri8Q_qxLs8IILDrXBy-mYyTZBvYjgFzMfUWBG6B--hWvc23JT6EgDdJjf3RulUExRywb6vJI6RhkXHLaRndP2lmbEwKSM5r2fxnDT5TKQH3sPWPZEPXEn8L6A7VDG2qfLoDi_3-eRZwGJUg4PrRfc=w680-h383-s-no-gm?authuser=0') no-repeat center center fixed; /* Replace with your background image URL */
+            background-size: cover;
+            text-align: center;
+            padding-top: 50px;
+            color: rgb(0, 0, 0);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .note {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        #slideshow-container {
+            display: none;
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .slides-container {
+            display: flex;
+            height: 80vh;
+            transition: transform 1s ease; /* Updated transition timing for a smoother slide */
+        }
+
+        .mySlides {
+            width: 100%;
+            flex: 0 0 auto;
+            text-align: center;
+        }
+
+        .img {
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .prev, .next {
+            position: fixed;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        .gallery-btn {
+            background-color: #e8491d;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .gallery-btn:hover {
+            background-color: #c23300;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Celebrating Four Years</h1>
+
+    <div class="note">
+        <p><h3>Congratulations on four wonderful years of love, laughter, and strength in our long-distance relationship. Each day with you is a treasure, and I look forward to many more years of creating beautiful memories together. Happy anniversary, my love!</h3>></p>
+    </div>
+
+    <div id="slideshow-container">
+        <div class="slides-container">
+            <!-- Images -->
+            <div class="mySlides">
+                <img class="img" src="https://i.ibb.co/FD2bPLw/20220217-144046.jpg" alt="Image 1">
+            </div>
+
+            <div class="mySlides">
+                <img class="img" src="https://i.ibb.co/qJJ6nvz/20220714-104829.jpg" alt="Image 2">
+            </div>
+
+            <div class="mySlides">
+                <img class="img" src="https://i.ibb.co/C5dW2N3/20220714-110817.jpg" alt="Image 3">
+            </div>
+
+            <div class="mySlides">
+                <img class="img" src="https://i.ibb.co/Df607dM/20230923-220450.jpgl" alt="Image 4">
+            </div>
+
+            <div class="mySlides">
+                <img class="img" src="https://i.ibb.co/YN5CvkM/20230923-104149.jpg" alt="Image 5">
+            </div>
+
+            <div class="mySlides">
+                <img class="img" src="https://i.ibb.co/8XKVr1M/1000000195-01-2.jpg" alt="Image 6">
+            </div>
+        </div>
+
+        <!-- Navigation arrows -->
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+
+        <!-- Optional: Add dots to show current slide -->
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+    </div>
+
+    <a href="#" class="gallery-btn" onclick="showGallery()">Enter Gallery</a>
+
+    <script>
+        function showGallery() {
+            document.getElementById('slideshow-container').style.display = 'block';
+            showSlides();
+        }
+
+        let slideIndex = 0;
+
+        function showSlides() {
+            let slides = document.querySelector('.slides-container');
+            let dots = document.getElementsByClassName("dot");
+
+            slideIndex++;
+
+            if (slideIndex > slides.children.length) {
+                slideIndex = 1;
+            }
+
+            slides.style.transform = `translateX(${-100 * (slideIndex - 1)}%)`;
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            dots[slideIndex - 1].className += " active";
+
+            setTimeout(() => {
+                showSlides();
+            }, 4000); // Change slide every 3 seconds (3000 milliseconds)
+        }
+
+        // Next/previous controls
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+    </script>
+
+</body>
+</html>
